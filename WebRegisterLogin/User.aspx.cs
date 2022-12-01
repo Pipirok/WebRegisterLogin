@@ -19,7 +19,8 @@ namespace WebRegisterLogin
             LabelID.Text = user.id.ToString();
             LabelUsername.Text = user.username.ToString();
             LabelRegisterDate.Text = user.register_date.ToString();
-            LabelHash.Text = user.password.ToString();
+            LabelFirstName.Text = user.firstName.ToString();
+            LabelFirstName.Text = user.lastName.ToString();
         }
     }
 }

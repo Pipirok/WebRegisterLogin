@@ -25,6 +25,20 @@
                         <asp:Label ID="LabelUsernameFlavourText" runat="server" Text=""></asp:Label>
                     </div>
                     <div class="field">
+                        <label class="label">First name</label>
+                        <div class="control">
+                            <asp:TextBox OnTextChanged="TextBoxFirstName_TextChanged" AutoPostBack="true" CssClass="input" ID="TextBoxFirstName" runat="server"></asp:TextBox>
+                        </div>
+                        <asp:Label ID="LabelFirstNameFlavourText" runat="server" Text=""></asp:Label>
+                    </div>
+                    <div class="field">
+                        <label class="label">Last name</label>
+                        <div class="control">
+                            <asp:TextBox OnTextChanged="TextBoxLastName_TextChanged" AutoPostBack="true" CssClass="input" ID="TextBoxLastName" runat="server"></asp:TextBox>
+                        </div>
+                        <asp:Label ID="LabelLastNameFlavourText" runat="server" Text=""></asp:Label>
+                    </div>
+                    <div class="field">
                         <label class="label">Password</label>
                         <div class="control">
                             <asp:TextBox OnTextChanged="TextBoxPassword_TextChanged" AutoPostBack="true" CssClass="input" ID="TextBoxPassword" runat="server"></asp:TextBox>
@@ -56,7 +70,7 @@
                             <p class="is-size-3 has-text-center">An uknown error while creating the account</p>
                         </div>
                     </div>
-                    <asp:Button OnClick="Button1_Click" CssClass="modal-close is-large" ID="Button1" runat="server" Text="" />
+                    <asp:Button OnClick="Button1_Click" CssClass="modal-close is-large" ID="Button1" runat="server" Text="X" />
                 </div>
             </form>
         </div>

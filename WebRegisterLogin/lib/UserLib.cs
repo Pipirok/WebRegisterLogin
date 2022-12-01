@@ -18,11 +18,11 @@ namespace WebRegisterLogin.lib
             return true;
         }
 
-        public static bool Register(string username, string password)
+        public static bool Register(string username, string password, string firstName, string lastName)
         {
             if (DoesUserExist(username)) return false;
 
-            bool successfullyRegistered = UserDAL.AddUser(username, Hasher.Hash(password));
+            bool successfullyRegistered = UserDAL.AddUser(username, Hasher.Hash(password), firstName, lastName);
 
             return successfullyRegistered;
         }

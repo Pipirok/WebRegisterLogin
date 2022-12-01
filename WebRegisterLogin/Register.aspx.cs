@@ -20,17 +20,19 @@ namespace WebRegisterLogin
         protected bool IsUsernameCorrect = false;
         protected bool IsPasswordCorrect = false;
         protected bool DoPasswordsMatch = false;
+        protected bool IsFirstNameCorrect = false;
+        protected bool IsLastNameCorrect = false;
 
         protected bool IsSubmitEnabled = false;
 
         protected void CalculateButtonIsEnabled()
         {
-            if (IsUsernameCorrect && IsPasswordCorrect && DoPasswordsMatch)
+            if (IsUsernameCorrect && IsPasswordCorrect && DoPasswordsMatch && IsFirstNameCorrect && IsLastNameCorrect)
             {
                 IsSubmitEnabled = true;
                 return;
             }
-            IsSubmitEnabled= false;
+            IsSubmitEnabled = false;
         }
 
         protected void CalculateDoPasswordsMatch()
@@ -106,7 +108,8 @@ namespace WebRegisterLogin
         protected void ButtonSubmit_Click(object sender, EventArgs e)
         {
             
-            bool registerSuccess = UserLib.Register(TextBoxUsername.Text, TextBoxPassword.Text);
+            bool registerSuccess = UserLib.Register(TextBoxUsername.Text, TextBoxPassword.Text, 
+                TextBoxFirstName.Text, TextBoxLastName.Text);
             if (registerSuccess)
             {
                 Response.Redirect($"/User.aspx?username={TextBoxUsername.Text}");
@@ -121,6 +124,44 @@ namespace WebRegisterLogin
         {
             modal.Attributes.Remove("class");
             modal.Attributes.Add("class", "modal");
+        }
+
+        protected void TextBoxFirstName_TextChanged(object sender, EventArgs e)
+        {
+            string firstName = TextBoxUsername.Text;
+
+            if (firstName.Length > 20 || firstName.Length < 4)
+            {
+                LabelFirstNameFlavourText.Text = "First name must be 4-20 characters long";
+                LabelFirstNameFlavourText.CssClass = "is-danger help";
+                IsFirstNameCorrect = false;
+            }
+            else
+            {
+                LabelFirstNameFlavourText.Text = "";
+                LabelFirstNameFlavourText.CssClass = "";
+                IsFirstNameCorrect = true;
+            }
+            CalculateButtonIsEnabled();
+        }
+
+        protected void TextBoxLastName_TextChanged(object sender, EventArgs e)
+        {
+            string lastName = TextBoxUsername.Text;
+            
+            if (lastName.Length > 20 || lastName.Length < 4)
+            {
+                LabelLastNameFlavourText.Text = "Last name must be 4-20 characters long";
+                LabelLastNameFlavourText.CssClass = "is-danger help";
+                IsLastNameCorrect = false;
+            }
+            else
+            {
+                LabelLastNameFlavourText.Text = "";
+                LabelLastNameFlavourText.CssClass = "";
+                IsLastNameCorrect = true;
+            }
+            CalculateButtonIsEnabled();
         }
     }
 }

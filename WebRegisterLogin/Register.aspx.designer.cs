@@ -42,6 +42,42 @@ namespace WebRegisterLogin
         protected global::System.Web.UI.WebControls.Label LabelUsernameFlavourText;
 
         /// <summary>
+        /// TextBoxFirstName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxFirstName;
+
+        /// <summary>
+        /// LabelFirstNameFlavourText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelFirstNameFlavourText;
+
+        /// <summary>
+        /// TextBoxLastName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxLastName;
+
+        /// <summary>
+        /// LabelLastNameFlavourText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelLastNameFlavourText;
+
+        /// <summary>
         /// TextBoxPassword control.
         /// </summary>
         /// <remarks>

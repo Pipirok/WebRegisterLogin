@@ -21,7 +21,8 @@
                                 <th>ID</th>
                                 <th>Username</th>
                                 <th>Register Date</th>
-                                <th>Password hash</th>
+                                <th>First name</th>
+                                <th>Last name</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,11 +37,18 @@
                                     <asp:Label ID="LabelRegisterDate" runat="server" Text="Label"></asp:Label>
                                 </td>
                                 <td>
-                                    <asp:Label ID="LabelHash" runat="server" Text="Label"></asp:Label>
+                                    <asp:Label ID="LabelFirstName" runat="server" Text="Label"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Label ID="LabelLastName" runat="server" Text="Label"></asp:Label>
                                 </td>
                             </tr>
                         </tbody>
                     </table>
+                </div>
+                <div class="box">
+                    <a class="is-link button" href="Register.aspx">Back to Register</a>
+                    <a class="is-link button" href="Login.aspx">Back to Login</a>
                 </div>
             </form>
         </div>

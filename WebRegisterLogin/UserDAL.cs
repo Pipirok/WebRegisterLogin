@@ -27,22 +27,29 @@ namespace WebRegisterLogin
             {
                 return null;
             }
-            return new UserModel(ds.Tables[0].Rows[0].Field<string>("username"), ds.Tables[0].Rows[0].Field<string>("password"), ds.Tables[0].Rows[0].Field<DateTime>("register_date").ToLongDateString(), ds.Tables[0].Rows[0].Field<int>("id"));            
+            return new UserModel(ds.Tables[0].Rows[0].Field<string>("username"),
+                ds.Tables[0].Rows[0].Field<string>("password"),
+                ds.Tables[0].Rows[0].Field<DateTime>("register_date").ToLongDateString(),
+                ds.Tables[0].Rows[0].Field<int>("id"),
+                ds.Tables[0].Rows[0].Field<string>("first_name"),
+                ds.Tables[0].Rows[0].Field<string>("last_name"));
         }
 
-        public static bool AddUser(string username, string password)
+        public static bool AddUser(string username, string password, string firstName, string lastName)
         {
-            
-                if (conn.State != ConnectionState.Open) conn.Open();
-                SqlCommand command = new SqlCommand("AddUser", conn);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@username", username);
-                command.Parameters.AddWithValue("@password", password);
-                command.ExecuteNonQuery();
-                conn.Close();
-                return true;
-            
-           
+
+            if (conn.State != ConnectionState.Open) conn.Open();
+            SqlCommand command = new SqlCommand("AddUser", conn);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@username", username);
+            command.Parameters.AddWithValue("@password", password);
+            command.Parameters.AddWithValue("@firstName", firstName);
+            command.Parameters.AddWithValue("@lastName", lastName);
+            command.ExecuteNonQuery();
+            conn.Close();
+            return true;
+
+
         }
     }
 }
